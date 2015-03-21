@@ -1,0 +1,15 @@
+<%= erb :_navbar, locals: {current_user: current_user} %>
+
+<p class="welcome">Welcome to <%= @current_user.username %>'s profile!</p>
+
+<div class="whisper_box">
+
+  <p><%= erb :_new_whisper %></p>
+
+  <% @current_user.whispers.each do |whisper| %>
+
+  <p><%= erb :_whisper, locals: {whisper: whisper} %></p>
+
+  <% end %>
+
+</div>

@@ -1,0 +1,17 @@
+<div class="user-box">
+  <img class="gravatar" src="<%= user.gravatar_url %>">
+
+  <p>Username: <%= user.username %></p>
+
+  <% if current_user.stalking?(user) %>
+    <form method="post" action="/users/<%= user.username %>/unstalk">
+      <input type="hidden" name="_method" value="put">
+      <button class="button" type="submit">Unstalk</button>
+    </form>
+  <% else %>
+    <form method="post" action="/users/<%= user.username %>/stalk">
+      <input type="hidden" name="_method" value="put">
+      <button class="button" type="submit">Stalk</button>
+    </form>
+  <% end %>
+</div>

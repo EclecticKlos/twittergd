@@ -1,0 +1,9 @@
+<%= erb :_navbar, locals: {current_user: current_user} %>
+
+<h2>Find some people to stalk!</h2>
+
+  <% @all_users.each do |user| %>
+    <% unless user == current_user %>
+      <%= erb :"_user-box", locals: {user: user} %>
+    <% end %>
+  <% end %>
